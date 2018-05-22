@@ -6,7 +6,7 @@ Using the Unix OS environment, write a c program named sleepy that gets a loop c
 sleepy n
 
 where n is the number of seconds for which the program should run. Implement this timing by using a loop that iterates n times.  The body of the loop will contain the statement sleep(1). This will put the program to sleep for one second n times before exiting.  If n is not provided use a default value of 5.  Here is the code needed to pass an argument to a program from the command line:
-
+```
 int main(int argc, char *argv[ ]) {
 
 int count;
@@ -20,13 +20,13 @@ else
      count = 5;
 
 }
+```
 
-
-
+```
 #include <unistd.h>
 ...
 unsigned int sleep(unsigned int seconds);
-
+```
 This function causes the calling process to be suspended until either
 
 1.   the amount of wall clock time specified by seconds has elapsed, or
@@ -38,12 +38,12 @@ The return value from sleep is 0 or the number of unslept seconds if the sleep f
 In each iteration print out the process ID and the loop count so that that particular process can be identified.
 
 The process ID can be obtained from the getpid function:
-
+```
 #include <sys/types.h>
 #include <unistd.h>
 ...
 pid_t getpid(void);
-
+```
 This function returns the process ID of the calling process.
 
 The process ID is returned as a type pid_t which is actually an integer so it can be treated as such in a printf format statement (use an int cast to avoid a compile warning from gcc).
